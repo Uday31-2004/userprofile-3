@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "frontend/package.json", "use": "@vercel/static-build" },
+      { "src": "backend/package.json", "use": "@vercel/node" }
+    ],
+    "routes": [
+      { "src": "/api/(.*)", "dest": "backend/api/$1" },
+      { "src": "/(.*)", "dest": "frontend/$1" }
+    ],
+    "env": {
+      "API_URL": "mongodb+srv://udayb3122:rklf2ZLuVyDHTdcG@cluster0.dzxkzb3.mongodb.net/userProfiles?retryWrites=true&w=majority" 
+    }
+  }
+  
