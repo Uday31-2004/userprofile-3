@@ -23,7 +23,7 @@ mongoose.connect(MONGODB_URI, {
 
   const userSchema = new mongoose.Schema({
     id: {
-      type: ObjectId,
+      type: String,
       required: true,
       unique: true,
     },
