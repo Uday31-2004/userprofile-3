@@ -13,7 +13,14 @@ const PORT = process.env.PORT || 5000;
 const MONGODB_URI =
   "mongodb+srv://udayb3122:rklf2ZLuVyDHTdcG@cluster0.dzxkzb3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-app.use(cors());
+  app.use(cors(
+    {
+      origin:["https://userprofile-3.vercel.app/"],
+      methods:["POST", "GET"],
+      credentials: true
+    }
+  ));
+  
 app.use(bodyParser.json());
 
 mongoose
