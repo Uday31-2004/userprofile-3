@@ -10,19 +10,13 @@ dotenv.config(); // Load environment variables from .env file
 const usersData = require('./users.json'); // Import user data
 
 const app = express();
-
 const PORT = process.env.PORT || 5000;
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/userProfiles';
 
-app.use(cors(
-  {
-    origin:["https://userprofile-3.vercel.app/"],
-    methods:["POST", "GET"],
-    credentials: true
-  }
-));
+app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb+srv://udayb3122:rklf2ZLuVyDHTdcG@cluster0.dzxkzb3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(MONGODB_URI, {
   
 }).then(() => {
   console.log('MongoDB connected');
