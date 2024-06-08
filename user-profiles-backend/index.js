@@ -15,7 +15,7 @@ const MONGODB_URI =
 
   app.use(cors(
     {
-      origin:["https://userprofile-3.vercel.app/"],
+      origin:"https://userprofile-3.vercel.app/",
       methods:["POST", "GET"],
       credentials: true
     }
