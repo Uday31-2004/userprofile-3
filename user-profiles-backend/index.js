@@ -5,13 +5,13 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const { ObjectId } = require('mongoose').Types;
 
-dotenv.config(); // Load environment variables from .env file
+dotenv.config(); 
 
-const usersData = require('./users.json'); // Import user data
+const usersData = require('./users.json'); 
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/userProfiles';
+const MONGODB_URI = "mongodb+srv://udayb3122:rklf2ZLuVyDHTdcG@cluster0.dzxkzb3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,7 +21,6 @@ mongoose.connect(MONGODB_URI, {
 }).then(() => {
   console.log('MongoDB connected');
 
-  // Define the User schema and model
   const userSchema = new mongoose.Schema({
     id: {
       type: ObjectId,
@@ -46,7 +45,6 @@ mongoose.connect(MONGODB_URI, {
 
   const User = mongoose.model('User', userSchema);
 
-  // Check if the database is empty and seed it if necessary
   User.countDocuments().then(async (count) => {
     if (count === 0) {
       try {
