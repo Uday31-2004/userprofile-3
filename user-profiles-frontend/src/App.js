@@ -11,7 +11,11 @@ const App = () => {
   useEffect(() => {
     console.log('Fetching users...');
     setTimeout(() => {
-      axios.get('https://userprofile-gules.vercel.app/api/users')
+      axios.get('https://userprofile-gules.vercel.app/api/users',{
+        headers: {
+        'Access-Control-Allow-Origin': 'https://userprofile-3.vercel.app'
+      }
+      })
         .then(response => {
           console.log('Users fetched:', response.data);
           setUsers(response.data);
